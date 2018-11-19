@@ -1,0 +1,227 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+.header {
+  height: 450px;
+  background-color: $background-medium;
+
+  @include respond-to("medium") {
+    height: 575px;
+  }
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    @include respond-to("small") {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
+
+  &-image {
+    height: 150px;
+    margin-bottom: 30px;
+
+    @include respond-to("small") {
+      height: 200px;
+      margin-bottom: 0;
+    }
+
+    @include respond-to("medium") {
+      height: 300px;
+    }
+  }
+
+  &-tagline {
+    @include xlarge-font();
+    color: $body-light;
+    width: 400px;
+    text-align: center;
+    cursor: default;
+
+    @include respond-to("small") {
+      flex-basis: 430px;
+      text-align: left;
+      width: 50%;
+      align-items: flex-start;
+    }
+
+    @include respond-to("medium") {
+      flex-basis: 500px;
+    }
+  }
+
+  &-taglinePart {
+    display: inline;
+    @include title-link-border();
+  }
+}
+
+.upcomingMeetup {
+  color: $body-dark;
+  @include medium-font;
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &-title {
+    @include large-font;
+    margin-bottom: 30px;
+  }
+
+  &-detail {
+    text-align: center;
+
+    &--date {
+      margin-bottom: 10px;
+    }
+  }
+
+  &-detailLabel {
+    font-weight: 400;
+  }
+
+  &-presenters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 40px 0;
+  }
+
+  &-presenter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    max-width: 100%;
+    padding: 20px;
+    border: 3px solid rgba($highlight, 0.2);
+    margin: 20px;
+  }
+
+  &-presenterImage {
+    height: 130px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+  }
+
+  &-presenterName {
+    font-weight: 400;
+    margin-bottom: 5px;
+  }
+
+  &-presenterPresentationTitle {
+    @include small-font;
+    font-weight: 400;
+    align-self: flex-start;
+    margin-bottom: 5px;
+  }
+
+  &-presenterDescription {
+    @include small-font;
+  }
+
+  &-mapWrapper {
+    position: relative;
+    height: 450px;
+    width: 100%;
+  }
+
+  &-mapNote {
+    text-align: center;
+    margin-bottom: 10px;
+    @include small-font();
+  }
+}
+
+.ctaBlock {
+  position: relative;
+  color: $body-light;
+
+  @include respond-to("medium") {
+    height: 300px;
+    @include medium-font();
+  }
+
+  &-pattern {
+    display: flex;
+    position: relative;
+
+    @include respond-to("medium") {
+      position: absolute;
+      align-items: flex-end;
+      transition: box-shadow $transition-duration cubic-bezier(0.4, 0, 0.3, 1);
+    }
+
+    &--first {
+      background-color: $highlight-secondary;
+
+      @include respond-to("medium") {
+        justify-content: flex-end;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+      }
+    }
+    &--second {
+      background-color: $background-medium;
+
+      @include respond-to("medium") {
+        bottom: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+      }
+    }
+
+    &:hover {
+      z-index: 10;
+      box-shadow: 0 4px 15px 5px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  &-container {
+    height: 100%;
+    position: relative;
+  }
+
+  &-cta {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 40px;
+    height: 200px;
+
+    @include respond-to("medium") {
+      position: absolute;
+      height: unset;
+      width: 100vw / 2;
+    }
+
+    @include respond-to("large") {
+      width: $container-width / 2;
+    }
+  }
+
+  &-ctaHeading {
+    @include large-font();
+  }
+
+  &-ctaDescription {
+    @include medium-font();
+
+    @include respond-to("medium") {
+      margin-bottom: 40px;
+    }
+  }
+}

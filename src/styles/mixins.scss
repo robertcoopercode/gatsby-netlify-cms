@@ -1,0 +1,93 @@
+@import "./variables.scss";
+
+$breakpoints: (
+  "small": 767px,
+  "medium": 992px,
+  "large": 1200px,
+) !default;
+
+@mixin respond-to($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+          + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+@mixin small-font() {
+  font-weight: 300;
+  font-size: 0.9rem;
+  letter-spacing: 0.4px;
+  line-height: 1.4rem;
+
+  @include respond-to("small") {
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    line-height: 1.5rem;
+  }
+}
+
+@mixin medium-font() {
+  font-weight: 300;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  line-height: 1.5rem;
+
+  @include respond-to("small") {
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+    line-height: 1.75rem;
+  }
+}
+
+@mixin large-font() {
+  font-weight: 400;
+  font-size: 1.75rem;
+  letter-spacing: 1px;
+  line-height: 3rem;
+
+  @include respond-to("small") {
+    font-size: 2.25rem;
+    letter-spacing: 1.2px;
+    line-height: 3.75rem;
+  }
+}
+
+@mixin xlarge-font() {
+  font-weight: 400;
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+  line-height: 3rem;
+
+  @include respond-to("small") {
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    line-height: 3.5rem;
+  }
+
+  @include respond-to("medium") {
+    font-size: 3rem;
+    line-height: 4rem;
+  }
+}
+
+@mixin link-border() {
+  border-bottom: 2px solid $highlight;
+  transition: all $transition-duration ease-in-out;
+
+  &:hover {
+    background-color: $highlight;
+  }
+}
+
+@mixin title-link-border() {
+  border-bottom: 3px solid $highlight;
+}

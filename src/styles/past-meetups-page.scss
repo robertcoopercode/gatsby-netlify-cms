@@ -1,0 +1,42 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+.pastMeetups {
+  &-container {
+    padding: $section-padding-mobile 20px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: -40px;
+
+    @include respond-to("medium") {
+      padding: $section-padding 20px;
+    }
+  }
+
+  &-title {
+    @include xlarge-font();
+    @include title-link-border();
+    margin-bottom: 20px;
+    text-align: center;
+    align-self: center;
+
+    @include respond-to("medium") {
+      margin-bottom: 40px;
+    }
+  }
+
+  &-description {
+    @include medium-font();
+    width: 900px;
+    max-width: 100%;
+    margin: 0 auto 20px;
+  }
+
+  &-meetup {
+    margin: 20px 0;
+
+    @include respond-to("medium") {
+      margin-bottom: 40px;
+    }
+  }
+}

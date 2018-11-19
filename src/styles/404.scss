@@ -1,0 +1,31 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+.pageNotFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $section-padding 0;
+
+  @include respond-to("small") {
+    padding: $section-padding-mobile 0;
+  }
+
+  &-title {
+    @include large-font();
+    @include title-link-border();
+    margin-bottom: 40px;
+  }
+
+  &-description {
+    font-size: 0.7rem;
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+      monospace;
+    white-space: pre;
+    margin-bottom: 40px;
+
+    @include respond-to("small") {
+      @include medium-font();
+    }
+  }
+}

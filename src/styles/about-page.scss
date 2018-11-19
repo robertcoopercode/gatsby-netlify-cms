@@ -1,0 +1,134 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+.about {
+  &-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+
+    @include respond-to("medium") {
+      padding-top: 60px;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
+
+  &-titleWrapper {
+    margin-bottom: 40px;
+    margin-right: 20px;
+    text-align: center;
+    flex-shrink: 0;
+
+    @include respond-to("medium") {
+      flex-basis: 450px;
+      text-align: left;
+      margin-bottom: 0;
+      justify-content: space-around;
+    }
+  }
+
+  &-title {
+    @include xlarge-font();
+    @include title-link-border();
+    display: inline;
+  }
+
+  &-imageWrapper {
+    width: 400px;
+    max-width: 100%;
+
+    @include respond-to("medium") {
+      width: 500px;
+    }
+  }
+
+  &-description {
+    padding: 0 20px 60px;
+    text-align: justify;
+    @include medium-font();
+
+    @include respond-to("small") {
+      text-align: left;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      @include large-font();
+    }
+  }
+}
+
+.developerGroups {
+  background-color: $background-medium;
+  color: $body-light;
+  @include medium-font();
+
+  h2 {
+    @include large-font();
+    margin-bottom: 40px;
+  }
+
+  ul li {
+    margin-bottom: 20px;
+  }
+
+  a {
+    @include link-border();
+  }
+}
+
+.galleryList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: -20px;
+}
+
+.galleryList-item {
+  width: 350px;
+  margin-bottom: 20px;
+}
+
+.organizers {
+  @include medium-font();
+
+  &-title {
+    text-align: center;
+    margin-bottom: 40px;
+    @include large-font();
+
+    @include respond-to("small") {
+      margin-bottom: 80px;
+    }
+  }
+
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  &-listItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+  }
+
+  &-listItemImage {
+    margin-bottom: 20px;
+    border-radius: 3px;
+    height: 200px;
+
+    @include respond-to("small") {
+      height: 300px;
+    }
+  }
+
+  &-listItemName {
+    font-weight: 400;
+  }
+}

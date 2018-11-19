@@ -1,0 +1,40 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+html {
+  font-size: 16px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  text-size-adjust: 100%;
+  background-color: $background-light;
+}
+
+body {
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  color: $body-dark;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  max-width: $container-width;
+  padding: 0 $container-padding;
+  margin: auto;
+}
+
+.section {
+  padding: $section-padding-mobile 0;
+
+  @include respond-to("small") {
+    padding: $section-padding 0;
+  }
+}
+
+main {
+  min-height: calc(100vh - #{$navbar-height} - #{$footer-height});
+}
