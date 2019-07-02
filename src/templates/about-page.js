@@ -24,7 +24,7 @@ export const AboutPageTemplate = props => {
         </section>
         <section className="section">
           {/* The page.html is actually markdown when viewing the page from the netlify CMS,
-              so we must use the ReactMarkdown component to parse the mardown in that case  */}
+              so we must use the ReactMarkdown component to parse the markdown in that case  */}
           {page.bodyIsMarkdown ? (
             <ReactMarkdown className="about-description" source={page.html} />
           ) : (
